@@ -1,0 +1,147 @@
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.title > h1 {
+  margin-left: 16px;
+}
+
+.formcontainer {
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+
+  background-color: #363636;
+  color: white;
+
+  max-width: 300px;
+  height: auto;
+  margin: auto;
+  margin-top: 30px;
+  padding: 40px 39px;
+  border-radius: 12px;
+}
+
+.styledform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.styledinput {
+  background-color: #222222;
+  color: white;
+  border-style: none;
+  outline: solid 1.5px #7c7c7c;
+
+  padding: 12px 13px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  width: 250px;
+
+  font-size: 14px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.styledinput:focus {
+  outline: solid 2px white;
+}
+
+.styledinput::placeholder {
+  opacity: 1;
+}
+
+.submitbutton {
+  position: relative;
+  width: 130px;
+  height: 40px;
+
+  background-color: #7321f4;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  transition-duration: 0.1s;
+}
+
+.loginbutton:active {
+  top: 1px;
+  background-color: #b080ff;
+}
+
+.otherloginmodes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #6a6a6a;
+  padding-bottom: 40px;
+  margin: 15px 0;
+}
+
+.otherloginbuttons {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  background-color: white;
+  font-size: 16px;
+  padding: 6px 0;
+  margin: 5px 0;
+  border-radius: 5px;
+  width: 277px;
+  border: none;
+}
+
+.loginlogos {
+  padding: 0 20px 0 20px;
+}
+
+.styledlink {
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  margin: 10px 0 0 0;
+}
+
+.warninglink {
+  text-decoration: underline white;
+  color: white;
+  font-size: 10px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.warninglink:hover {
+  text-decoration: none;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  align-items: center;
+}
+
+.bottomlinks {
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  margin: 8px 9px 0 10px;
+}

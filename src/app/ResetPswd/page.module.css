@@ -1,0 +1,108 @@
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.logo > h1 {
+  margin-left: 16px;
+}
+
+.formcontainer {
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+
+  background-color: #363636;
+  color: white;
+
+  max-width: 340px;
+  height: auto;
+  margin: auto;
+  margin-top: 30px;
+  padding: 40px 40px;
+  border-radius: 12px;
+}
+
+.styledform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0 20px 0;
+}
+
+.title {
+  margin: 30px 0;
+  font-size: 16px;
+}
+
+.span {
+  font-weight: 400;
+  font-size: 12px;
+  margin: 0;
+}
+
+.styledinput {
+  background-color: #222222;
+  color: white;
+  border-style: none;
+  outline: solid 1.5px #7c7c7c;
+
+  padding: 12px 13px;
+  margin: 0px 0 40px 0;
+  border-radius: 5px;
+  width: 250px;
+
+  font-size: 14px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.styledinput:focus {
+  outline: solid 2px white;
+}
+
+.styledinput::placeholder {
+  opacity: 1;
+}
+
+.submitbutton {
+  position: relative;
+  width: 250px;
+  height: 40px;
+
+  background-color: #7321f4;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  transition-duration: 0.1s;
+}
+
+.submitbutton:active {
+  top: 1px;
+  background-color: #b080ff;
+}
+
+.loginlogos {
+  padding: 0 20px 0 20px;
+}
+
+.backlink {
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+}

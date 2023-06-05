@@ -15,7 +15,9 @@
   "dependencies": {
     "@commitlint/cli": "^17.6.3",
     "@commitlint/config-conventional": "^17.6.3",
+    "@supabase/supabase-js": "^2.24.0",
     "cross-env": "^7.0.3",
+    "encoding": "^0.1.13",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "husky": "^8.0.3",
