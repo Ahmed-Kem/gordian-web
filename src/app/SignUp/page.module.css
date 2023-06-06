@@ -39,6 +39,14 @@
   margin: 20px 0;
 }
 
+.pswdDiv {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .styledinput {
   background-color: #222222;
   color: white;
@@ -46,7 +54,6 @@
   outline: solid 1.5px #7c7c7c;
 
   padding: 12px 13px;
-  margin-bottom: 20px;
   border-radius: 5px;
   width: 250px;
 
@@ -62,6 +69,12 @@
 
 .styledinput::placeholder {
   opacity: 1;
+}
+
+.pswdVisibility {
+  position: absolute;
+  right: 10px;
+  z-index: 1;
 }
 
 .submitbutton {

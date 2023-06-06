@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import gordianLogo from '../utils/images/gordian-logo.svg';
+import gordianLogo from '../utils/logos/gordian-logo.svg';
 import styles from './page.module.css';
 
 export default function LogIn() {

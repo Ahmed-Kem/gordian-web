@@ -5,13 +5,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import appleLogo from '../utils/images/apple-logo.svg';
-import googleLogo from '../utils/images/google-logo.svg';
-import gordianLogo from '../utils/images/gordian-logo.svg';
+import hidePwdImg from '../utils/icons/hide-password.svg';
+import showPwdImg from '../utils/icons/show-password.svg';
+import appleLogo from '../utils/logos/apple-logo.svg';
+import googleLogo from '../utils/logos/google-logo.svg';
+import gordianLogo from '../utils/logos/gordian-logo.svg';
 import styles from './page.module.css';
 
 export default function LogIn() {
   const [formData, setFormData] = useState({ email: '', mdp: '' });
+  const [pswdShown, setPswdShown] = useState(false);
 
   const router = useRouter();
 
@@ -53,18 +56,31 @@ export default function LogIn() {
         <form className={styles.styledform} onSubmit={handleSubmit}>
           <input
             className={styles.styledinput}
+            style={{ marginBottom: 20 }}
             type="text"
             placeholder="Saisissez une adresse e-mail"
             name="email"
             onChange={handleChange}
           />
-          <input
-            className={styles.styledinput}
-            type="password"
-            placeholder="Saisir le mot de passe"
-            name="mdp"
-            onChange={handleChange}
-          />
+
+          <div className={styles.pswdDiv}>
+            <input
+              className={styles.styledinput}
+              type={pswdShown ? 'text' : 'password'}
+              placeholder="Saisir le mot de passe"
+              name="mdp"
+              onChange={handleChange}
+            />
+
+            <Image
+              className={styles.pswdVisibility}
+              src={pswdShown ? hidePwdImg : showPwdImg}
+              alt={pswdShown ? 'Hide password' : 'Show password'}
+              height={25}
+              width={25}
+              onClick={() => setPswdShown((pswdShown) => !pswdShown)}
+            />
+          </div>
           <input
             className={styles.submitbutton}
             type="submit"

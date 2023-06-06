@@ -5,13 +5,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import appleLogo from '../utils/images/apple-logo.svg';
-import googleLogo from '../utils/images/google-logo.svg';
-import gordianLogo from '../utils/images/gordian-logo.svg';
+import hidePwdImg from '../utils/icons/hide-password.svg';
+import showPwdImg from '../utils/icons/show-password.svg';
+import appleLogo from '../utils/logos/apple-logo.svg';
+import googleLogo from '../utils/logos/google-logo.svg';
+import gordianLogo from '../utils/logos/gordian-logo.svg';
 import styles from './page.module.css';
 
 export default function SignUp() {
   const [formData, setFormData] = useState({ nom: '', email: '', mdp: '' });
+  const [pswdShown, setPswdShown] = useState(false);
 
   const router = useRouter();
 
@@ -62,6 +65,7 @@ export default function SignUp() {
             placeholder="Saisissez votre nom"
             name="nom"
             onChange={handleChange}
+            style={{ marginBottom: 20 }}
           />
           <input
             className={styles.styledinput}
@@ -69,14 +73,25 @@ export default function SignUp() {
             placeholder="Saisissez une adresse e-mail"
             name="email"
             onChange={handleChange}
+            style={{ marginBottom: 20 }}
           />
-          <input
-            className={styles.styledinput}
-            type="password"
-            placeholder="Saisir le mot de passe"
-            name="mdp"
-            onChange={handleChange}
-          />
+          <div className={styles.pswdDiv}>
+            <input
+              className={styles.styledinput}
+              type={pswdShown ? 'text' : 'password'}
+              placeholder="Saisir le mot de passe"
+              name="mdp"
+              onChange={handleChange}
+            />
+            <Image
+              className={styles.pswdVisibility}
+              src={pswdShown ? hidePwdImg : showPwdImg}
+              alt={pswdShown ? 'Hide password' : 'Show password'}
+              height={25}
+              width={25}
+              onClick={() => setPswdShown((pswdShown) => !pswdShown)}
+            />
+          </div>
           <span
             style={{
               fontFamily: "'Be Vietnam Pro', sans-serif",
