@@ -9,16 +9,16 @@ import styles from './page.module.css';
 export default function Home() {
   const router = useRouter();
 
-  const { session } = useAuth();
+  const { authState } = useAuth();
 
   /* Pour le moment, la page LogIn sera la page d'accueil */
   useEffect(() => {
-    if (!session) {
+    if (authState === 'SIGNED_OUT') {
       router.push('/LogIn');
-    } else {
+    } else if (authState === 'SIGNED_IN') {
       router.push('/Homepage');
     }
-  }, []);
+  }, [authState]);
 
   return <main className={styles.main}></main>;
 }

@@ -4,7 +4,7 @@ import { useAuth } from '@/context/AuthSupabaseContexte';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import hidePwdImg from '../utils/icons/hide-password.svg';
 import showPwdImg from '../utils/icons/show-password.svg';
 import appleLogo from '../utils/logos/apple-logo.svg';
@@ -18,7 +18,13 @@ export default function LogIn() {
 
   const router = useRouter();
 
-  const { signInWithPassword } = useAuth();
+  const { signInWithPassword, signInWithGoogle, authState } = useAuth();
+
+  useEffect(() => {
+    if (authState === 'SIGNED_IN') {
+      router.push('/Homepage');
+    }
+  }, [authState]);
 
   function handleChange(event) {
     setFormData((prevFormData) => {
@@ -35,6 +41,14 @@ export default function LogIn() {
         password: formData.mdp,
       });
       router.push('/Homepage');
+    } catch (error) {
+      alert(error);
+    }
+  }
+
+  async function handleSignUpWithGoogle(e) {
+    try {
+      const { error } = await signInWithGoogle();
     } catch (error) {
       alert(error);
     }
@@ -89,7 +103,10 @@ export default function LogIn() {
         </form>
         OU
         <div className={styles.otherloginmodes}>
-          <button className={styles.otherloginbuttons}>
+          <button
+            className={styles.otherloginbuttons}
+            onClick={handleSignUpWithGoogle}
+          >
             <Image
               className={styles.loginlogos}
               src={googleLogo}

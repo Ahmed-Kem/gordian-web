@@ -15,6 +15,7 @@ export const AuthSupabaseProvider = ({ children }) => {
   const [session, setSession] = useState(null);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [authState, setAuthState] = useState(null);
 
   /* Init session*/
   useEffect(() => {
@@ -29,6 +30,7 @@ export const AuthSupabaseProvider = ({ children }) => {
       setSession(session);
       setUser(session?.user);
       setLoading(false);
+      setAuthState(event);
     });
   }, []);
 
@@ -36,9 +38,17 @@ export const AuthSupabaseProvider = ({ children }) => {
   const value = {
     signUp: (data) => supabase.auth.signUp(data),
     signInWithPassword: (data) => supabase.auth.signInWithPassword(data),
+    signInWithGoogle: () =>
+      supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: 'http://localhost:3000/Homepage',
+        },
+      }),
     signOut: () => supabase.auth.signOut(),
-    user: user,
+    user,
     session,
+    authState,
   };
 
   return (

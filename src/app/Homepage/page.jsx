@@ -7,17 +7,17 @@ import { useEffect } from 'react';
 export default function Homepage() {
   const router = useRouter();
 
-  const { signOut, user, session } = useAuth();
+  const { signOut, user, authState } = useAuth();
 
   useEffect(() => {
-    if (!session) {
-      router.push('/');
+    if (authState === 'SIGNED_OUT') {
+      router.push('/LogIn');
     }
-  }, [session]);
+  }, [authState]);
 
   return (
     <div>
-      {session ? (
+      {authState === 'SIGNED_IN' ? (
         <div>
           {' '}
           <h1>Welcome home {user.user_metadata.name}</h1>

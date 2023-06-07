@@ -3,12 +3,9 @@
 import { useAuth } from '@/context/AuthSupabaseContexte';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import hidePwdImg from '../utils/icons/hide-password.svg';
 import showPwdImg from '../utils/icons/show-password.svg';
-import appleLogo from '../utils/logos/apple-logo.svg';
-import googleLogo from '../utils/logos/google-logo.svg';
 import gordianLogo from '../utils/logos/gordian-logo.svg';
 import styles from './page.module.css';
 
@@ -16,7 +13,7 @@ export default function SignUp() {
   const [formData, setFormData] = useState({ nom: '', email: '', mdp: '' });
   const [pswdShown, setPswdShown] = useState(false);
 
-  const router = useRouter();
+  //  const router = useRouter();
 
   const { signUp } = useAuth();
 
@@ -115,29 +112,7 @@ export default function SignUp() {
             value={'Continuer'}
           />
         </form>
-        OU
-        <div className={styles.otherloginmodes}>
-          <button className={styles.otherloginbuttons}>
-            <Image
-              className={styles.loginlogos}
-              src={googleLogo}
-              alt="google-logo"
-              height={30}
-              width={30}
-            />
-            Continuer avec Google
-          </button>
-          <button className={styles.otherloginbuttons}>
-            <Image
-              className={styles.loginlogos}
-              src={appleLogo}
-              alt="apple-logo"
-              height={30}
-              width={30}
-            />
-            Continuer avec Apple
-          </button>
-        </div>
+
         <Link className={styles.styledlink} href="/LogIn">
           Vous avez déjà un compte ?
         </Link>
