@@ -7,7 +7,6 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import hidePwdImg from '../utils/icons/hide-password.svg';
 import showPwdImg from '../utils/icons/show-password.svg';
-import appleLogo from '../utils/logos/apple-logo.svg';
 import googleLogo from '../utils/logos/google-logo.svg';
 import gordianLogo from '../utils/logos/gordian-logo.svg';
 import styles from './page.module.css';
@@ -116,7 +115,7 @@ export default function LogIn() {
             />
             Continuer avec Google
           </button>
-          <button className={styles.otherloginbuttons}>
+          {/*<button className={styles.otherloginbuttons}>
             <Image
               className={styles.loginlogos}
               src={appleLogo}
@@ -125,7 +124,7 @@ export default function LogIn() {
               width={30}
             />
             Continuer avec Apple
-          </button>
+  </button>*/}
         </div>
         <Link className={styles.styledlink} href="/SignUp">
           Inscrivez-vous
