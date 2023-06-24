@@ -13,7 +13,7 @@ export default function Home() {
 
   /* Pour le moment, la page LogIn sera la page d'accueil */
   useEffect(() => {
-    if (authState === 'SIGNED_OUT') {
+    if (authState === 'SIGNED_OUT' || authState === null) {
       router.push('/LogIn');
     } else if (authState === 'SIGNED_IN') {
       router.push('/Homepage');
